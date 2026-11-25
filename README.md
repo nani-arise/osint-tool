@@ -293,22 +293,7 @@ pytest tests/test_phone.py -v
 
 > Test coverage depends on the test cases implemented in the `tests/` directory.
 
-## ⚖️ Legal & Ethics
 
-This tool collects data **only from publicly available sources**:
-- Public DNS records
-- Public carrier databases
-- Public social media profile URLs (existence check only)
-- Published breach databases (HIBP)
-- Publicly available WHOIS data
-
-**It does NOT:**
-- Access private user data
-- Bypass authentication
-- Scrape content behind login walls
-- Store or transmit data to third parties
-
----
 
 ## 📚 Key Learning Outcomes
 
@@ -325,6 +310,25 @@ Building this project helped me explore and implement concepts across cybersecur
 - **Security Practices** — Managing environment variables, API credentials, and responsible investigation workflows.
 - **Report Generation** — Creating structured PDF reports using ReportLab.
 
+## ⚖️ Legal & Ethical Use
+
+This tool is developed for educational purposes, cybersecurity research, and authorized investigations involving publicly available information.
+
+### Responsible Usage
+- Use the tool only for lawful purposes.
+- Investigate only information you are authorized to access.
+- Respect privacy, applicable laws, and platform terms of service.
+- Obtain appropriate permission before conducting investigations involving individuals or organizations.
+
+### Scope & Limitations
+- The tool relies on publicly accessible sources and configured third-party services.
+- Results may be incomplete, inaccurate, outdated, or unavailable.
+- Certain features depend on external APIs, network availability, and service limitations.
+- The tool does not guarantee the accuracy of intelligence findings.
+
+### Disclaimer
+The developer assumes no responsibility for misuse, unauthorized investigations, privacy violations, or damages resulting from the use of this software. Users are solely responsible for ensuring their activities comply with applicable laws and regulations.
+
 ## 📜 License
 
 MIT License — see [LICENSE](LICENSE) for details.
@@ -333,12 +337,19 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 ## 👨‍💻 Author
 
-Y S Nandish
-BE Cybersecurity 
-Built on Kali Linux | June 2026
+## 👨‍💻 Author
+
+**Y S Nandish**  
+Cybersecurity Engineering Student
+
+Interested in cybersecurity, threat detection, security research, Linux, and building practical security tools.
+
+- GitHub: [@nani-arise](https://github.com/nani-arise)
 
 ---
 
 <div align="center">
-<i>Built with ❤️ for learning. Use responsibly.</i>
+
+*Built with ❤️ for learning, security research, and responsible use.*
+
 </div>
