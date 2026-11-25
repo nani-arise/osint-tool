@@ -310,6 +310,21 @@ This tool collects data **only from publicly available sources**:
 
 ---
 
+## 📚 Key Learning Outcomes
+
+Building this project helped me explore and implement concepts across cybersecurity, networking, and Python development.
+
+- **OSINT Methodology** — Gathering and correlating publicly available intelligence.
+- **Asynchronous Programming** — Using `asyncio` and `aiohttp` for concurrent operations.
+- **API Integration** — Working with REST APIs, authentication, response handling, and error management.
+- **Network Intelligence** — Understanding IP geolocation, DNS records, ISP information, and ASN data.
+- **Digital Image Forensics** — Extracting EXIF metadata and identifying embedded information.
+- **Steganography Analysis** — Exploring LSB techniques and tools such as `steghide`, `zsteg`, and `binwalk`.
+- **Perceptual Hashing** — Understanding image similarity through perceptual fingerprints.
+- **Python Project Structure** — Organizing modular code, dependencies, and virtual environments.
+- **Security Practices** — Managing environment variables, API credentials, and responsible investigation workflows.
+- **Report Generation** — Creating structured PDF reports using ReportLab.
+
 ## 📜 License
 
 MIT License — see [LICENSE](LICENSE) for details.
