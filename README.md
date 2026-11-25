@@ -2,16 +2,22 @@
 
 <div align="center">
 
+### An Open-Source Intelligence Toolkit for Ethical Security Research
+
+A Python-based OSINT toolkit for gathering, analyzing, and organizing publicly available information through modular intelligence workflows.
+
+Built for cybersecurity learning, authorized investigations, and responsible security research.
+
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Platform](https://img.shields.io/badge/Platform-Kali%20Linux-557C94?style=for-the-badge&logo=kali-linux&logoColor=white)
+![Platform](https://img.shields.io/badge/Platform-Linux-557C94?style=for-the-badge&logo=linux&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
-![Education](https://img.shields.io/badge/Purpose-Educational-orange?style=for-the-badge)
-
-**A comprehensive OSINT (Open Source Intelligence) tool built for ethical cybersecurity research.**
-
+![Purpose](https://img.shields.io/badge/Purpose-Educational-orange?style=for-the-badge)
 
 </div>
+
+---
+
+
 
 ---
 
@@ -44,74 +50,39 @@
 
 ## ✨ Features
 
-### 📞 Module 1 — Phone Number Intelligence
-- Country, region/state, carrier name detection (offline)
-- Line type: Mobile / Landline / VOIP / Toll-free
-- Timezone(s) from number prefix
-- All standard formats: E164, International, National
-- WhatsApp likelihood detection
-- NumVerify API enrichment (carrier confirmation, location)
-- Auto-generated Google, Truecaller, Sync.me, WhatsApp search links
+### 📱 Phone Intelligence
+- Phone number validation and formatting
+- Country, region, carrier, and line-type identification
+- Timezone information and international number formatting
+- External intelligence lookup integrations
 
-### 🌐 Module 2 — IP Address Intelligence
-- Dual-source lookup: ipinfo.io + ip-api.com (cross-verified)
-- City, region, country, postal code
-- **Exact GPS coordinates** (latitude & longitude)
-- Timezone, ISP, ASN (Autonomous System Number)
-- Hostname (reverse DNS)
-- VPN / Proxy / Tor exit node detection
-- Hosting/datacenter IP flagging
-- Google Maps + Shodan + VirusTotal + AbuseIPDB links
+### 🌐 IP Intelligence
+- IP geolocation and network information
+- ISP, ASN, reverse DNS, and timezone analysis
+- VPN, proxy, and Tor detection where supported
+- Geographic and network intelligence enrichment
 
-### 📧 Module 3 — Email Intelligence
-- Format validation with regex
-- Disposable email detection (50+ known providers)
-- DNS MX record lookup (can this domain receive email?)
-- AbstractAPI: SMTP deliverability, quality score, catchall detection
-- HaveIBeenPwned breach check (which breaches, what data exposed)
-- Pastebin, LinkedIn, Google search links
+### 📧 Email Intelligence
+- Email format and domain validation
+- Disposable email detection
+- MX record and DNS analysis
+- Email breach lookup integrations
 
-### 🔍 Module 4 — Social Media Mapper
-- **Async username search across 50+ platforms simultaneously**
-- Platforms: GitHub, Reddit, Instagram, Twitter, LinkedIn,
-  YouTube, TikTok, Telegram, Pinterest, Medium, Steam + more
-- HTTP status + response time per platform
-- Profile avatar URL extraction for fingerprinting
-- Results in ~3-5 seconds (async vs 50s synchronous)
+### 👤 Username & Social Media Investigation
+- Username searches across multiple platforms
+- Platform availability checks
+- Response status and timing analysis
 
-### 🖼️ Module 5 — Image OSINT + Steganography
-**EXIF Metadata Extraction:**
-- Camera make & model, lens model, serial number
-- **Exact GPS coordinates + Google Maps / Satellite / OSM links**
-- Date & time photo was taken (with timezone offset)
-- ISO, shutter speed, aperture, focal length, flash
-- Software / OS / firmware version (e.g. Android 13)
-- Artist/owner tag, copyright, image unique ID
+### 🖼️ Image Intelligence
+- EXIF and metadata extraction
+- GPS location extraction when available
+- Image analysis and steganography detection utilities
+- Reverse image search references
 
-**Steganography Detection:**
-- LSB (Least Significant Bit) statistical analysis
-- File size compression ratio anomaly detection
-- steghide integration (hidden data check)
-- zsteg integration (PNG analysis)
-- binwalk integration (embedded file detection)
-
-**Perceptual Hashing (Avatar Fingerprinting):**
-- pHash, aHash, dHash, wHash computation
-- Compare two images — Hamming distance < 10 = same person
-- MD5 + SHA1 file fingerprinting
-
-**Reverse Image Search:**
-- Auto-generated Google Lens, TinEye, Yandex, Bing links
-
-### 📄 Module 6 — PDF Report Generator
-- Professional cover page with target info and scan summary
-- Separate section per module (phone, IP, email, social, image)
-- Teal header + page numbers on every page
-- Ethical disclaimer footer
-- All OSINT links included
-- Auto-loads all JSON scan files from output/ folder
-
----
+### 📄 Intelligence Reporting
+- Structured investigation reports
+- Consolidated findings
+- PDF report generation
 
 ## 🗂️ Project Structure
 
@@ -162,159 +133,165 @@ osint-tool/
 ## 🚀 Installation
 
 ### Prerequisites
-- Kali Linux (recommended) or any Linux/macOS
-- Python 3.10 or higher
-- pip (Python package manager)
+- Linux (Kali Linux recommended) or macOS
+- Python 3.10+
+- pip
 
-### Step 1 — Clone the repository
+### 1. Clone the repository
 ```bash
-git clone https://github.com/nandish123-tech/osint-tool.git
+git clone https://github.com/nani-arise/osint-tool.git
 cd osint-tool
 ```
 
-### Step 2 — Create virtual environment
+### 2. Create and activate a virtual environment
 ```bash
 python -m venv venv
-source venv/bin/activate       # Linux/macOS
-# venv\Scripts\activate        # Windows
+source venv/bin/activate
 ```
 
-### Step 3 — Install Python dependencies
+### 3. Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### Step 4 — Install system tools (Kali Linux)
+### 4. Install system tools (Kali Linux)
 ```bash
-# Steganography tools
-sudo apt install steghide binwalk -y
-
-# zsteg (requires Ruby)
-sudo apt install ruby -y
-gem install zsteg
+sudo apt install steghide binwalk ruby -y
+sudo gem install zsteg
 ```
 
-### Step 5 — Configure API keys
+### 5. Configure API keys
 ```bash
 cp .env.example .env
 nano .env
 ```
 
-Fill in your keys (only NUMVERIFY and IPINFO needed to start):
-```
-NUMVERIFY_KEY=your_key_here    # numverify.com — free
-IPINFO_KEY=your_key_here       # ipinfo.io — free
-ABSTRACT_KEY=your_key_here     # abstractapi.com — free
-HIBP_KEY=your_key_here         # haveibeenpwned.com — optional
+Configure the API keys required by the modules:
+
+```env
+NUMVERIFY_KEY=your_key_here
+IPINFO_KEY=your_key_here
+ABSTRACT_KEY=your_key_here
+HIBP_KEY=your_key_here
 ```
 
-### Step 6 — Run!
+### 6. Launch the application
 ```bash
 python main.py
 ```
 
----
+> **Note:** Some features require external API keys and additional system utilities. Availability may depend on your configuration and the services used.
 
 ## 🎯 Usage Examples
 
-### Phone Number Lookup
-```
+### 📱 Phone Number Intelligence
+```text
 Select option: 1
 Enter phone number: +919876543210
 
-Output:
-  Country:   India (IN)
-  Carrier:   Airtel
-  Line type: Mobile
-  Timezone:  Asia/Kolkata
-  WhatsApp:  Likely
-  Google:    https://google.com/search?q=...
-  Truecaller: https://truecaller.com/search/in/...
+Phone Intelligence Results
+├── Country       : India (IN)
+├── Carrier      : Airtel
+├── Line Type    : Mobile
+├── Timezone    : Asia/Kolkata
+├── WhatsApp    : Likely
+└── External References
+    ├── Google Search
+    └── Truecaller
 ```
 
-### IP Address Lookup
-```
+### 🌐 IP Address Intelligence
+```text
 Select option: 2
 Enter IP address: 8.8.8.8
 
-Output:
-  City:       Mountain View
-  Region:     California
-  Country:    United States
-  Coords:     37.386051, -122.083855
-  ISP:        Google LLC
-  ASN:        AS15169
-  Proxy/VPN:  No
-  Google Maps: https://maps.google.com/...
-  Shodan:     https://shodan.io/host/8.8.8.8
+IP Intelligence Results
+├── City         : Mountain View
+├── Region       : California
+├── Country      : United States
+├── Coordinates  : 37.386051, -122.083855
+├── ISP          : Google LLC
+├── ASN          : AS15169
+└── Proxy/VPN   : No
+
+External References:
+├── Google Maps
+└── Shodan
 ```
 
-### Generate PDF Report
-```
+### 📄 PDF Report Generation
+```text
 Select option: 6
 Enter report label: investigation_001
 
-Output:
-  ✔ PDF created → output/OSINT_Report_investigation_001_2024.pdf
+Report Generated Successfully
+File: output/OSINT_Report_investigation_001.pdf
 ```
 
----
+> **Note:** Outputs shown above are illustrative examples. Actual results may vary depending on API availability, input data, and configuration.
 
-## 🔑 API Keys — Where to Get Them Free
+## 🔑 API Configuration
 
-| Service | URL | Free Tier | Used For |
-|---|---|---|---|
-| NumVerify | numverify.com | 100 req/month | Phone carrier + line type |
-| IPInfo | ipinfo.io | 50,000 req/month | IP geolocation + ASN |
-| AbstractAPI | abstractapi.com | 100 req/month | Email validation + SMTP |
-| HaveIBeenPwned | haveibeenpwned.com | ~$3.50/month | Email breach check |
-| WhoisXML | whoisxmlapi.com | 500 req/month | Domain WHOIS |
+Some features use external APIs to enrich intelligence results. API keys are optional for certain modules, depending on the configured integrations.
 
-> **Note:** The tool works without most API keys.
-> `phonenumbers` library runs fully offline for phone data.
-> `ip-api.com` is completely free with no key for IP lookups.
+| Service | Purpose | Configuration |
+|---|---|---|
+| NumVerify | Phone number intelligence | `NUMVERIFY_KEY` |
+| IPInfo | IP geolocation and network intelligence | `IPINFO_KEY` |
+| AbstractAPI | Email validation and deliverability | `ABSTRACT_KEY` |
+| HaveIBeenPwned | Email breach lookup | `HIBP_KEY` |
+| WhoisXML | Domain WHOIS intelligence | Optional API integration |
 
----
+### Configuration
+
+- API keys are stored in the local `.env` file.
+- Never commit API keys, tokens, or credentials to GitHub.
+- Some modules provide limited functionality without API credentials.
+- API availability and usage limits depend on the respective service providers.
+
+See `.env.example` for the required configuration variables.
 
 ## 🛠️ Tech Stack
 
-| Layer | Technology |
+| Category | Technologies |
 |---|---|
-| Language | Python 3.11 |
-| Terminal UI | Rich |
-| HTTP requests | requests + aiohttp (async) |
-| Phone parsing | phonenumbers |
-| DNS lookups | dnspython |
-| Image analysis | Pillow + imagehash |
-| Steganography | steghide + zsteg + binwalk |
-| PDF generation | ReportLab |
-| Environment | python-dotenv |
-| Testing | pytest |
+| **Programming Language** | Python 3.11 |
+| **Terminal Interface** | Rich |
+| **HTTP & Networking** | Requests, aiohttp |
+| **Phone Intelligence** | phonenumbers |
+| **DNS & Network Analysis** | dnspython |
+| **Image Processing** | Pillow, ImageHash |
+| **Steganography Analysis** | steghide, zsteg, binwalk |
+| **PDF Reporting** | ReportLab |
+| **Configuration Management** | python-dotenv |
+| **Testing** | pytest |
+| **Environment** | Linux, Kali Linux |
 
----
 
-## 🧪 Running Tests
+
+## 🧪 Testing
+
+This project uses `pytest` for running automated tests.
+
+### Run the test suite
 
 ```bash
 pytest tests/ -v
 ```
 
----
+### Run tests with detailed output
 
-## 📚 What I Learned Building This
+```bash
+pytest tests/ -v -s
+```
 
-- **OSINT methodology** — passive intelligence gathering from public sources
-- **Async programming** — `asyncio` + `aiohttp` for parallel requests
-- **REST API integration** — HTTP requests, authentication, error handling
-- **EXIF metadata** — how cameras embed hidden data in images
-- **Steganography** — LSB analysis, binwalk, steghide
-- **Perceptual hashing** — DCT-based image fingerprinting
-- **DNS protocol** — MX records, A records, NXDOMAIN
-- **PDF generation** — ReportLab canvas and flowable elements
-- **Python packaging** — modules, imports, virtual environments
-- **Security best practices** — .env files, .gitignore, API key management
+### Run a specific test file
 
----
+```bash
+pytest tests/test_phone.py -v
+```
+
+> Test coverage depends on the test cases implemented in the `tests/` directory.
 
 ## ⚖️ Legal & Ethics
 
